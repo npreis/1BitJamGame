@@ -9,6 +9,9 @@ public class InteractWithObjectScript : MonoBehaviour
 
     [SerializeField]
     GameObject interactUI;
+
+    [SerializeField]
+    GameObject interactObject;
     bool canInteract;
     // Start is called before the first frame update
     void Start()
@@ -29,29 +32,32 @@ public class InteractWithObjectScript : MonoBehaviour
             {
                 canInteract = true;
                 interactUI.SetActive(true);
+                interactObject = hit.collider.gameObject;
             }
             if (hit.collider.tag == "Untagged")
             {
                 canInteract = false;
                 interactUI.SetActive(false);
+                interactObject = null;
             }
         }
         else
         {
             canInteract = false;
             interactUI.SetActive(false);
+            interactObject = null;
         }
 
-        Interact();
+        Interact(interactObject);
     }
 
-    void Interact()
+    void Interact(GameObject interact)
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             if(canInteract)
             {
-                Debug.Log("Interacted");
+                Destroy(interact);
             }
             else
             {
