@@ -41,5 +41,22 @@ public class InteractWithObjectScript : MonoBehaviour
             canInteract = false;
             interactUI.SetActive(false);
         }
+
+        Interact();
+    }
+
+    void Interact()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if(canInteract)
+            {
+                Debug.Log("Interacted");
+            }
+            else
+            {
+                Debug.Log("Not Interacted");
+            }
+        }
     }
 }
