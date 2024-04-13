@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractWithObjectScript : MonoBehaviour
@@ -12,12 +13,18 @@ public class InteractWithObjectScript : MonoBehaviour
 
     [SerializeField]
     GameObject interactObject;
-    bool canInteract;
+
+    [SerializeField]
+    GameObject[] interactObjects;
+    public bool canInteract;
+    public bool canInteractChange;
     // Start is called before the first frame update
     void Start()
     {
         canInteract = false;
         cam = Camera.main;
+        interactObjects = GameObject.FindGameObjectsWithTag("InteractChange");
+        SearchForLayer(7);
     }
 
     private void Update()
@@ -31,12 +38,21 @@ public class InteractWithObjectScript : MonoBehaviour
             if (hit.collider.tag == "Interact")
             {
                 canInteract = true;
+                canInteractChange = false;
                 interactUI.SetActive(true);
                 interactObject = hit.collider.gameObject;
             }
-            if (hit.collider.tag == "Untagged")
+            if (hit.collider.tag == "InteractChange")
             {
                 canInteract = false;
+                canInteractChange = true;
+                interactUI.SetActive(true);
+                interactObject = hit.collider.gameObject;
+            }
+            else
+            {
+                canInteract = false;
+                canInteractChange = false;
                 interactUI.SetActive(false);
                 interactObject = null;
             }
@@ -44,6 +60,7 @@ public class InteractWithObjectScript : MonoBehaviour
         else
         {
             canInteract = false;
+            canInteractChange = false;
             interactUI.SetActive(false);
             interactObject = null;
         }
@@ -59,9 +76,35 @@ public class InteractWithObjectScript : MonoBehaviour
             {
                 Destroy(interact);
             }
+            if(canInteractChange)
+            {
+                Debug.Log("Change da world. My final message. Goodbye");
+                ChangeWorldLayerScript world = interactObject.GetComponent<ChangeWorldLayerScript>();
+                SearchForLayer(world.worldLayer);
+            }
             else
             {
                 Debug.Log("Not Interacted");
+            }
+        }
+    }
+
+    //Layers to change:
+    //7 to activate black and white world
+    //8 for black and red
+    //9 for black and blue
+    //10 for black and yellow
+    void SearchForLayer(int layer_)
+    {
+        for (int i = 0; i < interactObjects.Length; i++)
+        {
+            if (interactObjects[i].layer == layer_)
+            {
+                interactObjects[i].SetActive(true);
+            }
+            else
+            {
+                interactObjects[i].SetActive(false);
             }
         }
     }
