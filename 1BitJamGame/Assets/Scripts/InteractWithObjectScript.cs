@@ -16,6 +16,9 @@ public class InteractWithObjectScript : MonoBehaviour
 
     [SerializeField]
     GameObject[] interactObjects;
+
+    [SerializeField]
+    GameObject[] interactChangeObjects;
     public bool canInteract;
     public bool canInteractChange;
     // Start is called before the first frame update
@@ -23,7 +26,8 @@ public class InteractWithObjectScript : MonoBehaviour
     {
         canInteract = false;
         cam = Camera.main;
-        interactObjects = GameObject.FindGameObjectsWithTag("InteractChange");
+        interactObjects = GameObject.FindGameObjectsWithTag("Interact");
+        interactChangeObjects = GameObject.FindGameObjectsWithTag("InteractChange");
         SearchForLayer(7);
     }
 
@@ -78,7 +82,6 @@ public class InteractWithObjectScript : MonoBehaviour
             }
             if(canInteractChange)
             {
-                Debug.Log("Change da world. My final message. Goodbye");
                 ChangeWorldLayerScript world = interactObject.GetComponent<ChangeWorldLayerScript>();
                 SearchForLayer(world.worldLayer);
             }
@@ -98,13 +101,25 @@ public class InteractWithObjectScript : MonoBehaviour
     {
         for (int i = 0; i < interactObjects.Length; i++)
         {
-            if (interactObjects[i].layer == layer_)
+            if (interactObjects[i].layer == layer_ || interactObjects[i].layer == 0)
             {
                 interactObjects[i].SetActive(true);
             }
             else
             {
                 interactObjects[i].SetActive(false);
+            }
+        }
+
+        for(int i = 0; i < interactChangeObjects.Length; i++)
+        {
+            if (interactChangeObjects[i].layer == layer_)
+            {
+                interactChangeObjects[i].SetActive(false);
+            }
+            else
+            {
+                interactChangeObjects[i].SetActive(true);
             }
         }
     }
