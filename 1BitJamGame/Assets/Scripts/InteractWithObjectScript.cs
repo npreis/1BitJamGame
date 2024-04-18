@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class InteractWithObjectScript : MonoBehaviour
 {
@@ -21,6 +22,8 @@ public class InteractWithObjectScript : MonoBehaviour
     GameObject[] interactChangeObjects;
     public bool canInteract;
     public bool canInteractChange;
+    Color layer9 = Color.blue;
+    Color layer10 = Color.yellow;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,7 +31,7 @@ public class InteractWithObjectScript : MonoBehaviour
         cam = Camera.main;
         interactObjects = GameObject.FindGameObjectsWithTag("Interact");
         interactChangeObjects = GameObject.FindGameObjectsWithTag("InteractChange");
-        SearchForLayer(7);
+        SearchForLayer(9);
     }
 
     private void Update()
@@ -120,6 +123,17 @@ public class InteractWithObjectScript : MonoBehaviour
             else
             {
                 interactChangeObjects[i].SetActive(true);
+            }
+        }
+    }
+
+    void ChangeColor(int layer_)
+    {
+        for(int i = 0; i < interactObjects.Length; i++)
+        {
+            if(layer_ == 9)
+            {
+
             }
         }
     }

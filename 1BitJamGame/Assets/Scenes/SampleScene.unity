@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 535248223}
   - component: {fileID: 535248222}
   - component: {fileID: 535248221}
-  m_Layer: 8
+  m_Layer: 9
   m_Name: InteractObject (1)
   m_TagString: InteractChange
   m_Icon: {fileID: 0}
@@ -463,7 +463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fb3a6b4e9feaa4cb0e2e81b498c70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldLayer: 8
+  worldLayer: 9
 --- !u!54 &535248222
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -542,7 +542,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535248220}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &535248226
 Transform:
   m_ObjectHideFlags: 0
@@ -551,8 +551,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 535248220}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.34, y: 3.0033, z: 0.1}
-  m_LocalScale: {x: 1, y: 6.0465207, z: 1}
+  m_LocalPosition: {x: 3.47, y: 1.41, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -931,8 +931,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   orientation: {fileID: 259864427}
-  mouseSensitivityX: 400
-  mouseSensitivityY: 400
+  mouseSensitivityX: 500
+  mouseSensitivityY: 500
 --- !u!1 &1000150437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,7 +1048,7 @@ GameObject:
   - component: {fileID: 1217752095}
   - component: {fileID: 1217752099}
   - component: {fileID: 1217752100}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: InteractObject
   m_TagString: InteractChange
   m_Icon: {fileID: 0}
@@ -1117,7 +1117,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217752094}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!4 &1217752098
 Transform:
   m_ObjectHideFlags: 0
@@ -1126,8 +1126,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217752094}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.34, y: 3.0033, z: -3.25}
-  m_LocalScale: {x: 1, y: 6.0465207, z: 1}
+  m_LocalPosition: {x: 2.885, y: 1.236, z: -3.25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1161,7 +1161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fb3a6b4e9feaa4cb0e2e81b498c70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldLayer: 7
+  worldLayer: 10
 --- !u!1 &1232802539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1176,7 +1176,7 @@ GameObject:
   - component: {fileID: 1232802542}
   - component: {fileID: 1232802541}
   - component: {fileID: 1232802540}
-  m_Layer: 8
+  m_Layer: 10
   m_Name: InteractObject (2)
   m_TagString: Interact
   m_Icon: {fileID: 0}
@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49fb3a6b4e9feaa4cb0e2e81b498c70e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  worldLayer: 7
+  worldLayer: 10
 --- !u!54 &1232802541
 Rigidbody:
   m_ObjectHideFlags: 0
