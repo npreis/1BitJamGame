@@ -22,8 +22,8 @@ public class InteractWithObjectScript : MonoBehaviour
     GameObject[] interactChangeObjects;
     public bool canInteract;
     public bool canInteractChange;
-    Color layer9 = Color.blue;
-    Color layer10 = Color.yellow;
+
+    public AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +31,7 @@ public class InteractWithObjectScript : MonoBehaviour
         cam = Camera.main;
         interactObjects = GameObject.FindGameObjectsWithTag("Interact");
         interactChangeObjects = GameObject.FindGameObjectsWithTag("InteractChange");
-        SearchForLayer(9);
+        SearchForLayer_(9);
     }
 
     private void Update()
@@ -125,15 +125,34 @@ public class InteractWithObjectScript : MonoBehaviour
                 interactChangeObjects[i].SetActive(true);
             }
         }
+
+        audio.Play();
     }
 
-    void ChangeColor(int layer_)
+    //ONLY USE ONCE AT THE BEGINNING!!!!!
+    void SearchForLayer_(int layer_)
     {
-        for(int i = 0; i < interactObjects.Length; i++)
+        for (int i = 0; i < interactObjects.Length; i++)
         {
-            if(layer_ == 9)
+            if (interactObjects[i].layer == layer_ || interactObjects[i].layer == 0)
             {
+                interactObjects[i].SetActive(true);
+            }
+            else
+            {
+                interactObjects[i].SetActive(false);
+            }
+        }
 
+        for (int i = 0; i < interactChangeObjects.Length; i++)
+        {
+            if (interactChangeObjects[i].layer == layer_)
+            {
+                interactChangeObjects[i].SetActive(false);
+            }
+            else
+            {
+                interactChangeObjects[i].SetActive(true);
             }
         }
     }
