@@ -1298,7 +1298,7 @@ GameObject:
   - component: {fileID: 1579068151}
   - component: {fileID: 1579068150}
   m_Layer: 9
-  m_Name: InteractObject (1)
+  m_Name: ChangeToBlue
   m_TagString: InteractChange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1366,7 +1366,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 9190fef1d8340e44d94c1a5d46170995, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1424,7 +1424,6 @@ GameObject:
   - component: {fileID: 1618915439}
   - component: {fileID: 1618915438}
   - component: {fileID: 1618915437}
-  - component: {fileID: 1618915436}
   m_Layer: 10
   m_Name: InteractObject (2)
   m_TagString: Interact
@@ -1432,19 +1431,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1618915436
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1618915435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 49fb3a6b4e9feaa4cb0e2e81b498c70e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  worldLayer: 10
 --- !u!54 &1618915437
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1992,7 +1978,7 @@ GameObject:
   - component: {fileID: 1984666446}
   - component: {fileID: 1984666445}
   m_Layer: 10
-  m_Name: InteractObject
+  m_Name: ChangeToYellow
   m_TagString: InteractChange
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2060,7 +2046,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 30d729527fbb9b041a32fb0b3e6daf58, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
