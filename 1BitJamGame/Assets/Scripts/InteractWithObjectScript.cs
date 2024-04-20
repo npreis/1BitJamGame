@@ -16,21 +16,19 @@ public class InteractWithObjectScript : MonoBehaviour
     GameObject interactObject;
 
     [SerializeField]
-    GameObject[] interactObjects;
+    GameObject[] interactChangeObjects;
 
     [SerializeField]
-    GameObject[] interactChangeObjects;
-    public bool canInteract;
+    GameObject[] otherObjects;
     public bool canInteractChange;
 
     public AudioSource audio;
     // Start is called before the first frame update
     void Start()
     {
-        canInteract = false;
         cam = Camera.main;
-        interactObjects = GameObject.FindGameObjectsWithTag("Interact");
         interactChangeObjects = GameObject.FindGameObjectsWithTag("InteractChange");
+        otherObjects = GameObject.FindGameObjectsWithTag("Other");
         SearchForLayer_(9);
     }
 
@@ -42,23 +40,14 @@ public class InteractWithObjectScript : MonoBehaviour
         Debug.DrawRay(ray.origin, ray.direction * rayDistance);
         if (Physics.Raycast(ray, out hit, rayDistance))
         {
-            if (hit.collider.tag == "Interact")
-            {
-                canInteract = true;
-                canInteractChange = false;
-                interactUI.SetActive(true);
-                interactObject = hit.collider.gameObject;
-            }
             if (hit.collider.tag == "InteractChange")
             {
-                canInteract = false;
                 canInteractChange = true;
                 interactUI.SetActive(true);
                 interactObject = hit.collider.gameObject;
             }
             else
             {
-                canInteract = false;
                 canInteractChange = false;
                 interactUI.SetActive(false);
                 interactObject = null;
@@ -66,7 +55,6 @@ public class InteractWithObjectScript : MonoBehaviour
         }
         else
         {
-            canInteract = false;
             canInteractChange = false;
             interactUI.SetActive(false);
             interactObject = null;
@@ -79,10 +67,6 @@ public class InteractWithObjectScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            if(canInteract)
-            {
-                Destroy(interact);
-            }
             if(canInteractChange)
             {
                 ChangeWorldLayerScript world = interactObject.GetComponent<ChangeWorldLayerScript>();
@@ -102,15 +86,15 @@ public class InteractWithObjectScript : MonoBehaviour
     //10 for black and yellow
     void SearchForLayer(int layer_)
     {
-        for (int i = 0; i < interactObjects.Length; i++)
+        for(int i  = 0; i < otherObjects.Length; i++)
         {
-            if (interactObjects[i].layer == layer_ || interactObjects[i].layer == 0)
+            if (otherObjects[i].layer == layer_ || otherObjects[i].layer == 0)
             {
-                interactObjects[i].SetActive(true);
+                otherObjects[i].SetActive(true);
             }
             else
             {
-                interactObjects[i].SetActive(false);
+                otherObjects[i].SetActive(false);
             }
         }
 
@@ -132,15 +116,15 @@ public class InteractWithObjectScript : MonoBehaviour
     //ONLY USE ONCE AT THE BEGINNING!!!!!
     void SearchForLayer_(int layer_)
     {
-        for (int i = 0; i < interactObjects.Length; i++)
+        for (int i = 0; i < otherObjects.Length; i++)
         {
-            if (interactObjects[i].layer == layer_ || interactObjects[i].layer == 0)
+            if (otherObjects[i].layer == layer_ || otherObjects[i].layer == 0)
             {
-                interactObjects[i].SetActive(true);
+                otherObjects[i].SetActive(true);
             }
             else
             {
-                interactObjects[i].SetActive(false);
+                otherObjects[i].SetActive(false);
             }
         }
 
